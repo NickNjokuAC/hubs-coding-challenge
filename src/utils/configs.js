@@ -1,5 +1,5 @@
-import appLogo from "../assets/images/app-logo.png";
-import appLogoDark from "../assets/images/app-logo-dark.png";
+import appLogo from "../assets/images/NN Studios-logos_black.png";
+import appLogoDark from "../assets/images/NN Studios-logos_white.png";
 import companyLogo from "../assets/images/company-logo.png";
 import homeHeroBackground from "../assets/images/home-hero-background-unbranded.png";
 import sceneEditorLogo from "../assets/images/editor-logo.png";
