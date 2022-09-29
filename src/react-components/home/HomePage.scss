@@ -1,15 +1,15 @@
 @use "../styles/theme.scss";
 
 :local(.home-page) {
-  flex: 1;
+  //flex: 1;
   background-size: cover;
   padding: 0;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 
   @media (min-width: theme.$breakpoint-lg) {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   & > section {
@@ -43,6 +43,24 @@
   }
 }
 
+:local(.left-container) {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  @media(max-width: theme.$breakpoint-lg) {
+    display: none;
+  }
+}
+:local(.right-container) {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  @media(max-width: theme.$breakpoint-lg) {
+    display: none;
+  }
+}
+
+
 :local(.mobile-sign-out) {
   padding: 0.5rem;
 }
@@ -53,9 +71,7 @@
   align-items: center;
   flex: 1;
 
-  @media (min-width: theme.$breakpoint-lg) {
-    flex-direction: row;
-  }
+  
 }
 
 :local(.hero-image-container) {
@@ -63,6 +79,7 @@
   img {
     @media (min-width: theme.$breakpoint-lg) {
       border-radius: 16px;
+      margin-bottom: 45px;
     }
   }
 }
@@ -81,8 +98,8 @@
   @media (min-width: theme.$breakpoint-lg) {
     margin-bottom: 0;
     margin-left: 16px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 
     & > :last-child {
       margin-bottom: 0;
@@ -100,10 +117,14 @@
   line-height: 1.25;
 
   @media (min-width: theme.$breakpoint-lg) {
-    text-align: left;
+    text-align: center;
     margin: 0 16px 48px 0px;
     max-width: 860px;
-    font-size: theme.$font-size-2xl;
+    //font-size: theme.$font-size-2xl;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Palanquin;
   }
 }
 
@@ -193,3 +214,15 @@
     align-items: center;
   }
 }
+
+:local(.palanquin) {
+  font-family: theme.$font-family-palanquin;
+}
+
+:local(.graphic-hide) {
+  @media(max-width: theme.$breakpoint-lg) {
+    display: none;
+  }
+}
+
+

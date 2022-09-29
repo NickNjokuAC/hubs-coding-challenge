@@ -7,7 +7,7 @@
 :root {
   --font-family-default: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-
+  --font-family-palanquin: 'Palanquin', sans-serif;
   --text1-color: #{theme.$black};
   --text1-color-hover: #{theme.$black-hover};
   --text1-color-pressed: #{theme.$black-pressed};

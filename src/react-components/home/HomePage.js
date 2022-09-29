@@ -21,6 +21,115 @@ import { SignInButton } from "./SignInButton";
 import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
+import appLogo from "../../assets/images/NN_Studios_cropped.png";
+import styled from "styled-components";
+import { HaveRoomCodeButton } from "./HaveRoomCodeButton";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+const Header = styled.div`
+  dsiplay: flex;
+  text-align: center;
+  font-size: 128px;
+  font-family: "Palanquin";
+  font-weight: 700;
+`;
+
+const LeftGraphicContainer = styled.div`
+  
+`;
+
+const LeftGraphicOne = styled.div`
+  //position: absolute;
+  width: 47.66px;
+  height: 101.91px;
+  //left: 83.65px;
+  //top: 364.74px;
+  margin-bottom: 50px;
+  background: #ed813e;
+  border-radius: 26px;
+  transform: rotate(-30.11deg);
+`;
+
+const LeftGraphicTwo = styled.div`
+  //position: absolute;
+  width: 52.57px;
+  height: 32px;
+  //left: 139.52px;
+  //top: 500px;
+
+  background: #5a4ae3;
+  border-radius: 22px;
+  transform: rotate(17.31deg);
+  margin-bottom: 70px;
+`;
+
+const LeftGraphicThree = styled.div`
+//position: absolute;
+width: 92px;
+height: 32px;
+//left: 151.52px;
+//top: 633px;
+
+background: #5A4AE3;
+border-radius: 11px;
+transform: rotate(17.31deg);
+
+`;
+
+const RightGraphicContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+`;
+
+const RightGraphicOne = styled.div`
+  //position: absolute;
+  width: 45px;
+  height: 45px;
+  //left: 1491px;
+  //top: 233px;
+  border-radius: 100%;
+
+  background: #5a4ae3;
+
+  margin-bottom: 35px;
+`;
+
+const RightGraphicTwo = styled.div`
+  //position: absolute;
+  width: 47.66px;
+  height: 101.91px;
+  //left: 1529px;
+  //top: 335.91px;
+
+  background: #ed813e;
+  border-radius: 26px;
+  transform: rotate(-30.11deg);
+`;
+
+const RightGraphicThree = styled.div`
+  //position: absolute;
+  width: 92px;
+  height: 32px;
+  //left: 1555.19px;
+  //top: 528.2px;
+  margin-top: 60px;
+  background: #5a4ae3;
+  border-radius: 22px;
+  transform: rotate(17.31deg);
+`;
+
+const SubHeader = styled.div``;
+
+const LogoContainer = styled.div``;
 
 export function HomePage() {
   const auth = useContext(AuthContext);
@@ -56,6 +165,11 @@ export function HomePage() {
   return (
     <PageContainer className={styles.homePage}>
       <Container>
+        <div className={styles.leftContainer}>
+          <LeftGraphicOne></LeftGraphicOne>
+          <LeftGraphicTwo></LeftGraphicTwo>
+          <LeftGraphicThree></LeftGraphicThree>
+        </div>
         <div className={styles.hero}>
           {auth.isSignedIn ? (
             <div className={styles.signInContainer}>
@@ -77,116 +191,37 @@ export function HomePage() {
             <AppLogo />
           </div>
           <div className={styles.appInfo}>
-            <div className={styles.appDescription}>{configs.translation("app-description")}</div>
-            {canCreateRooms && <CreateRoomButton />}
+            <Header className="styles.palanquin">HubsWorldNN</Header>
+            <div className={styles.appDescription}>
+              Gather share and collaborate together in a virtual, private and safe space
+            </div>
+            <div className={styles.heroImageContainer}>
+              <img
+                alt={intl.formatMessage(
+                  {
+                    id: "home-page.hero-image-alt",
+                    defaultMessage: "Screenshot of {appName}"
+                  },
+                  { appName: configs.translation("app-name") }
+                )}
+                src={appLogo}
+              />
+            </div>
+            <ButtonContainer>
+              {canCreateRooms && <CreateRoomButton />}
+              <HaveRoomCodeButton />
+            </ButtonContainer>
             <PWAButton />
           </div>
-          <div className={styles.heroImageContainer}>
-            <img
-              alt={intl.formatMessage(
-                {
-                  id: "home-page.hero-image-alt",
-                  defaultMessage: "Screenshot of {appName}"
-                },
-                { appName: configs.translation("app-name") }
-              )}
-              src={configs.image("home_background")}
-            />
-          </div>
+        </div>
+        <div className={styles.rightContainer}>
+          <RightGraphicOne></RightGraphicOne>
+          <RightGraphicTwo></RightGraphicTwo>
+          <RightGraphicThree></RightGraphicThree>
         </div>
       </Container>
-      {configs.feature("show_feature_panels") && (
-        <Container className={classNames(styles.features, styles.colLg, styles.centerLg)}>
-          <Column padding gap="xl" className={styles.card}>
-            <img src={configs.image("landing_rooms_thumb")} />
-            <h3>
-              <FormattedMessage id="home-page.rooms-title" defaultMessage="Instantly create rooms" />
-            </h3>
-            <p>
-              <FormattedMessage
-                id="home-page.rooms-blurb"
-                defaultMessage="Share virtual spaces with your friends, co-workers, and communities. When you create a room with Hubs, you’ll have a private virtual meeting space that you can instantly share <b>- no downloads or VR headset necessary.</b>"
-                values={{ b: wrapInBold }}
-              />
-            </p>
-          </Column>
-          <Column padding gap="xl" className={styles.card}>
-            <img src={configs.image("landing_communicate_thumb")} />
-            <h3>
-              <FormattedMessage id="home-page.communicate-title" defaultMessage="Communicate and Collaborate" />
-            </h3>
-            <p>
-              <FormattedMessage
-                id="home-page.communicate-blurb"
-                defaultMessage="Choose an avatar to represent you, put on your headphones, and jump right in. Hubs makes it easy to stay connected with voice and text chat to other people in your private room."
-              />
-            </p>
-          </Column>
-          <Column padding gap="xl" className={styles.card}>
-            <img src={configs.image("landing_media_thumb")} />
-            <h3>
-              <FormattedMessage id="home-page.media-title" defaultMessage="An easier way to share media" />
-            </h3>
-            <p>
-              <FormattedMessage
-                id="home-page.media-blurb"
-                defaultMessage="Share content with others in your room by dragging and dropping photos, videos, PDF files, links, and 3D models into your space."
-              />
-            </p>
-          </Column>
-        </Container>
-      )}
-      {sortedPublicRooms.length > 0 && (
-        <Container className={styles.roomsContainer}>
-          <h3 className={styles.roomsHeading}>
-            <FormattedMessage id="home-page.public--rooms" defaultMessage="Public Rooms" />
-          </h3>
-          <Column grow padding className={styles.rooms}>
-            <MediaGrid center>
-              {sortedPublicRooms.map(room => {
-                return (
-                  <MediaTile
-                    key={room.id}
-                    entry={room}
-                    processThumbnailUrl={(entry, width, height) =>
-                      scaledThumbnailUrlFor(entry.images.preview.url, width, height)
-                    }
-                  />
-                );
-              })}
-            </MediaGrid>
-          </Column>
-        </Container>
-      )}
-      {sortedFavoriteRooms.length > 0 && (
-        <Container className={styles.roomsContainer}>
-          <h3 className={styles.roomsHeading}>
-            <FormattedMessage id="home-page.favorite-rooms" defaultMessage="Favorite Rooms" />
-          </h3>
-          <Column grow padding className={styles.rooms}>
-            <MediaGrid center>
-              {sortedFavoriteRooms.map(room => {
-                return (
-                  <MediaTile
-                    key={room.id}
-                    entry={room}
-                    processThumbnailUrl={(entry, width, height) =>
-                      scaledThumbnailUrlFor(entry.images.preview.url, width, height)
-                    }
-                  />
-                );
-              })}
-            </MediaGrid>
-          </Column>
-        </Container>
-      )}
-      <Container>
-        <Column center grow>
-          <Button thin preset="landing" as="a" href="/link">
-            <FormattedMessage id="home-page.have-code" defaultMessage="Have a room code?" />
-          </Button>
-        </Column>
-      </Container>
+
+      <Container></Container>
       {isHmc() ? (
         <Column center>
           <SocialBar />
