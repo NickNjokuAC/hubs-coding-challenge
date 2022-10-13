@@ -14,7 +14,6 @@ import { MediaTile } from "../room/MediaTiles";
 import { PageContainer } from "../layout/PageContainer";
 import { scaledThumbnailUrlFor } from "../../utils/media-url-utils";
 import { Column } from "../layout/Column";
-import { Button } from "../input/Button";
 import { Container } from "../layout/Container";
 import { SocialBar } from "../home/SocialBar";
 import { SignInButton } from "./SignInButton";
@@ -213,6 +212,11 @@ export function HomePage() {
             </ButtonContainer>
             <PWAButton />
           </div>
+        </div>
+        <div className={styles.rightContainer}>
+          <RightGraphicOne></RightGraphicOne>
+          <RightGraphicTwo></RightGraphicTwo>
+          <RightGraphicThree></RightGraphicThree>
         </div>
         <div className={styles.rightContainer}>
           <RightGraphicOne></RightGraphicOne>
